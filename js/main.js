@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Hamburger Menu Logic
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+    }
+
     // Hero Banner Slider
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.getElementById('prev-btn');
