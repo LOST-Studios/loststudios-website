@@ -1,0 +1,416 @@
+/* ============================
+   Career Page — LOST Studios
+   ============================ */
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #16213e;
+  --accent-purple: #924d85;
+  --accent-pink: #924d85;
+  --accent-gold: #dec692;
+  --text-main: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --bg-gradient: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(15, 15, 26, 0.3) 0%, rgba(15, 15, 26, 0.85) 80%, rgba(15, 15, 26, 1) 100%),
+    url('../assets/background/career_background.png') no-repeat 30% center / cover fixed,
+    url('../assets/elements/track.png') no-repeat center bottom / 100% auto,
+    var(--bg-gradient);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.text-gold {
+  color: var(--accent-gold);
+}
+
+/* ============================
+   Scroll Header
+   ============================ */
+.career-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(15, 15, 26, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.career-header.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.career-header-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.career-header-logo {
+  height: 50px;
+  transform: scale(2);
+  object-fit: contain;
+}
+
+/* ============================
+   Hero Section
+   ============================ */
+.career-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.career-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.career-socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.career-social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.career-social-link:hover {
+  background: var(--accent-purple);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(146, 77, 133, 0.4);
+}
+
+.career-social-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.career-social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.career-social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.career-social-icon:hover {
+  background: var(--accent-purple);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(146, 77, 133, 0.4);
+}
+
+.career-logo {
+  width: 700px;
+  max-width: 90vw;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(151, 107, 143, 0.4)) drop-shadow(0 0 80px rgba(146, 107, 196, 0.116));
+}
+
+.career-description {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 550px;
+}
+
+/* ============================
+   Vagas Section (reused from hiring)
+   ============================ */
+.career-positions {
+  padding: 4rem 2rem 6rem;
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.career-section-title {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.career-vagas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.career-glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.career-vaga-card {
+  padding: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.career-vaga-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.career-vaga-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.career-vaga-tag {
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.career-tag-art {
+  background: rgba(146, 77, 133, 0.2);
+  color: var(--accent-pink);
+  border: 1px solid rgba(146, 77, 133, 0.4);
+}
+
+.career-tag-audio {
+  background: rgba(222, 198, 146, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(222, 198, 146, 0.3);
+}
+
+.career-tag-dev {
+  background: rgba(100, 200, 255, 0.15);
+  color: #64c8ff;
+  border: 1px solid rgba(100, 200, 255, 0.3);
+}
+
+.career-vaga-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.career-status-open {
+  color: #4ade80;
+}
+
+.career-vaga-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.career-vaga-card p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.career-vaga-requisitos {
+  list-style: none;
+  padding: 0;
+}
+
+.career-vaga-requisitos li {
+  padding: 0.4rem 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.career-vaga-requisitos li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+}
+
+/* Apply CTA */
+.career-apply-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.career-btn-apply {
+  display: inline-block;
+  padding: 1rem 3rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: var(--accent-pink);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(146, 77, 133, 0.4);
+  transition: all 0.3s ease;
+}
+
+.career-btn-apply:hover {
+  background: #7a4272;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(146, 77, 133, 0.6);
+}
+
+/* ============================
+   Footer
+   ============================ */
+.career-footer {
+  padding: 3rem 0;
+  background: #0f0f1a;
+  border-top: 1px solid var(--glass-border);
+}
+
+.career-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.career-footer-inner p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.career-footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.career-footer-icon {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 768px) {
+  body {
+    background:
+      radial-gradient(ellipse at 80% 50%, rgba(15, 15, 26, 0.3) 0%, rgba(15, 15, 26, 0.85) 80%, rgba(15, 15, 26, 1) 100%),
+      url('../assets/background/career_background.png') no-repeat 50% center / cover fixed,
+      url('../assets/elements/track.png') no-repeat center bottom / 100% auto,
+      var(--bg-gradient);
+  }
+
+  .career-logo {
+    width: 320px;
+    transform: scale(1.3);
+  }
+
+  .career-header-inner {
+    padding: 1.8rem 0;
+  }
+
+  .career-header-logo {
+    height: 30px;
+    transform: scale(3.2);
+  }
+
+  .career-socials {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    transform: scale(0.9);
+  }
+
+  .career-social-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .career-section-title {
+    font-size: 1.8rem;
+  }
+
+  .career-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .career-info-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .career-info-text {
+    text-align: center;
+  }
+
+  .career-mascot-placeholder {
+    height: 300px;
+  }
+
+  .career-vagas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .career-vaga-card {
+    padding: 1.5rem;
+  }
+
+  .career-footer-inner {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+}
